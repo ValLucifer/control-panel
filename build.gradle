@@ -1,0 +1,26 @@
+plugins {
+  id 'java'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version = '1.0'
+
+dependencies {
+  implementation fileTree( dir: 'jars', include: '**/*.jar' )
+  implementation fileTree( dir: 'lib', include: '**/*.jar' )
+}
+
+repositories {
+  jcenter()
+}
+
+test {
+  useJUnit()
+}
+
+task launch(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'ir.mrl.starter.MrlLauncher'
+  maxHeapSize = '2048m'
+}
